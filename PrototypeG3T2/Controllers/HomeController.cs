@@ -41,7 +41,7 @@ namespace PrototypeG3T2.Controllers
         [HttpGet]
         public List<Order> OrdersKlant(int KlantId)
         {
-            var listOrders = _context.Orders.Where(x => x.KlantId == KlantId).Take(5).ToList();
+            var listOrders = _context.Orders.Where(x => x.KlantId == KlantId).ToList();
             return listOrders;
         }
 

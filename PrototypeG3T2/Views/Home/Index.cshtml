@@ -36,7 +36,7 @@
                     <i class="fa fa-list fa-4x"></i>
                 </div>
                 <h6 class="text-uppercase">Finished</h6>
-                <h1 class="display-1">0</h1>
+                <h1 class="display-1">@Model.Where(x => x.Status == "Finished").Count()</h1>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                     <i class="fa fa-twitter fa-5x"></i>
                 </div>
                 <h6 class="text-uppercase">In production</h6>
-                <h1 class="display-1">@Model.Count()</h1>
+                <h1 class="display-1">@Model.Where(x => x.Status == "In_Production").Count()</h1>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
                     <i class="fa fa-share fa-5x"></i>
                 </div>
                 <h6 class="text-uppercase">Production errors</h6>
-                <h1 class="display-1">@Model</h1>
+                <h1 class="display-1">@Model.Where(x => x.Status == "Production_Error").Count()</h1>
             </div>
         </div>
     </div>
@@ -68,21 +68,27 @@
 
 
 <div class="col-lg-9 col-md-8">
+    <h2>Most recent orders</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead class="thead-inverse">
-                <tr>            
+                <tr>
                     <th>Item Naam</th>
-                    <th>Order ID</th>  
+                    <th>Order ID</th>
+                    <th>Status</th>
+                    <th>Details</th>
+
                 </tr>
             </thead>
             <tbody>
-                @for (int i = 0; i <= Model.Count - 1; ++i)
+                @for (int i = 0; i <= 4 ; ++i)
                 {
-                    <tr>
-                        <td>@Model[i].ItemNaam</td>
-                        <td>@Model[i].OrderId</td>
-                    </tr>
+                <tr>
+                    <td>@Model[i].ItemNaam</td>
+                    <td>@Model[i].OrderId</td>
+                    <td>@Model[i].Status</td>
+                    
+                </tr>
                 }
         
             </tbody>
