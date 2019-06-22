@@ -9,12 +9,7 @@ namespace PrototypeG3T2.Models
     {
         public int OrderId { get; set; }
         public string ItemNaam { get; set; }
-        public enum Status
-        {
-            Finished,
-            In_Production,
-            Production_Error
-        }
+        public string Status { get; set; }
         public int KlantId { get; set; }
         public List<SensorData> SensorDataList { get; set; }
     }
