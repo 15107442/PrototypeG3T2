@@ -8,6 +8,7 @@ using PrototypeG3T2.Models;
 
 namespace PrototypeG3T2.Controllers
 {
+    [Microsoft.AspNetCore.Authorization.Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
