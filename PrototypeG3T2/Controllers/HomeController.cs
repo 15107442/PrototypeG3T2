@@ -12,9 +12,17 @@ namespace PrototypeG3T2.Controllers
     [Microsoft.AspNetCore.Authorization.Authorize]
     public class HomeController : Controller
     {
+        private DataContext _context;
+
+        public HomeController(DataContext context) {
+
+        _context = context;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var list = OrdersKlant(1);
+            return View(list);
         }
 
         public IActionResult Privacy()
@@ -28,18 +36,12 @@ namespace PrototypeG3T2.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        private DataContext _context;
-
-        public void SetContext(DataContext context)
-        {
-            _context = context;
-        }
-
+     
         //Laat alle orders van 1 klant zien
         [HttpGet]
         public List<Order> OrdersKlant(int KlantId)
         {
-            var listOrders = _context.Orders.Where(x => x.KlantId == KlantId).ToList();
+            var listOrders = _context.Orders.Where(x => x.KlantId == KlantId).Take(5).ToList();
             return listOrders;
         }
 
