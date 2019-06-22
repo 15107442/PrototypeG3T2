@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Dashboard";
-    
+
 }
 
 
@@ -18,17 +18,22 @@
 </div>
 
 <div class="row mb-3">
+
     <div class="col-xl-3 col-lg-6">
+
         <div class="card card-inverse card-success">
-            <div class="card-block bg-success">
-                <div class="rotate">
-                    <i class="fa fa-user fa-5x"></i>
-                </div>
-                <h6 class="text-uppercase">Orders</h6>
+
+            <div class="card-block bg-success ">
+                <a style="color: black" asp-controller="Home" asp-action="Privacy">
+                    <h6 class="text-uppercase">Orders</h6>
+                </a>
                 <h1 class="display-1">@Model.Count()</h1>
             </div>
+
         </div>
+
     </div>
+
     <div class="col-xl-3 col-lg-6">
         <div class="card card-inverse card-danger">
             <div class="card-block bg-danger">
@@ -67,7 +72,7 @@
 </div>
 
 
-<div class="col-lg-9 col-md-8">
+<div class="col-lg-6 col-md-6">
     <h2>Most recent orders</h2>
     <div class="table-responsive">
         <table class="table table-striped">
@@ -76,25 +81,72 @@
                     <th>Item Naam</th>
                     <th>Order ID</th>
                     <th>Status</th>
-                    <th>Details</th>
-
                 </tr>
             </thead>
             <tbody>
-                @for (int i = 0; i <= 4 ; ++i)
+                @for (int i = 0; i <= 3; ++i)
                 {
-                <tr>
-                    <td>@Model[i].ItemNaam</td>
-                    <td>@Model[i].OrderId</td>
-                    <td>@Model[i].Status</td>
-                    
-                </tr>
+                    <tr>
+                        <td>@Model[i].ItemNaam</td>
+                        <td>@Model[i].OrderId</td>
+                        <td>@Model[i].Status</td>
+
+                    </tr>
                 }
-        
+
             </tbody>
         </table>
     </div>
-</div>
-        
 
+
+</div>
+
+<div class="col-lg-6 col-md-6">
+   
+
+
+    <canvas width="200" height="100" id="myChart"></canvas>
+</div>
+
+
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script type="text/javascript">
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: ['January', 'Februari'],
+                datasets: [{
+                    label: 'FINISHED',
+
+                    borderColor: '#9441f4',
+                    data: [4,8]
+                }, {
+                        label: 'IN PRODUCTION',
+
+                        borderColor: '#4286f4',
+                        data: [3, 3]
+                    }
+                    , {
+                        label: 'PRODUCTION ERRORS',
+
+                        borderColor: '#e00404',
+                        data: [6, 2]
+                    }
+                ]
+
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+    </script>
+}
 

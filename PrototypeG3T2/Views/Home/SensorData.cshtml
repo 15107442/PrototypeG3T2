@@ -1,0 +1,57 @@
+﻿@model List<SensorData>
+
+@{
+    ViewData["Title"] = "SensorData";
+}
+
+<h1>SensorData</h1>
+
+<div class="col-lg-12 col-md-12">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Order</th>
+                    <th>Sensor Naam</th>
+                    <th>Volume</th>
+                    <th>Timestamps</th>
+                    <th>Q waarde</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i <= Model.Count - 1; ++i)
+                {
+                <tr>
+                    <td>@Model[i].OrderId</td>
+                    <td>@Model[i].SensorNaam</td>
+                    <td>@Model[i].Vwaarde</td>
+                    <td>@Model[i].Twaarde</td>
+                    <td>@Model[i].Qwaarde</td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-lg-12 col-md-12">
+    <h2> Simulation</h2>
+    <div class="wpb_column vc_column_container vc_span6">
+        <div class="vc_column-inner">
+            <div class="wpb_wrapper">
+                <div class="wpb_video_widget wpb_content_element vc_clearfix   vc_video-aspect-ratio-169 vc_video-el-width-100 vc_video-align-center">
+                    <div class="wpb_wrapper">
+
+                        <div class="wpb_video_wrapper"><iframe width="800" height="300" src="https://www.youtube.com/embed/OZVGt201a7Q?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe></div>
+                    </div>
+                </div>
+                <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

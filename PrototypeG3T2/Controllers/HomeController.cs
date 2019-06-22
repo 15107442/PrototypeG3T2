@@ -27,7 +27,14 @@ namespace PrototypeG3T2.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            var list = OrdersKlant(1);
+            return View(list);
+        }
+
+        public IActionResult SensorData()
+        {
+            var list = SensorDataOrder(1);
+            return View(list);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
