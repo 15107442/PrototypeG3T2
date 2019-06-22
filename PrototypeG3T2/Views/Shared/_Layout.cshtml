@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - PrototypeG3T2</title>
 
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     </environment>
@@ -13,38 +16,83 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid"  style="justify-content:flex-end">
-                <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="SignOut">Logout</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
+       
         
-        <div class="sidenav">
-            <div class="container">
+            <div class="container-fluid" style="background-color: #2f2f2f" >
+                
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img style=" width: 200px;  height: 80px" src="https://www.airborne.com/wp-content/uploads/2015/11/airborn-logo-loader.png" alt="Airborne" title="Airborne"></a>
                
-                <a asp-area="" asp-controller="Home" asp-action="Index"> <img asp-controller="Home" asp-action="Index" style="width: 140px" src="https://www.airborne.com/wp-content/uploads/2015/11/airborn-logo-loader.png" alt="Airborne" title="Airborne"></a>
             </div>
- 
-            <a asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
-            <a asp-area="" asp-controller="Home" asp-action="Privacy">Simulation</a>
-        </div>
+      
+    </header>
+
+
+
+
+    <div class="row">
+        <div class="left ">
+            <ul>
+
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <li class="item-menu">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="menu">Dashboard</span>
+                    </li>
+                </a>
+                <a href="#">
+                    <li class="item-menu">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <span class="menu">Orders</span>
+                    </li>
+                </a>
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">
+                    <li class="item-menu">
+                        <span class="glyphicon glyphicon-book"></span>
+                        <span class="menu">Simulation</span>
+                    </li>
+                </a>
+                <a href="#">
+                    <li class="item-menu">
+                        <span class="glyphicon glyphicon-cog"></span>
+                        <span class="menu">Settings</span>
+                    </li>
+                </a>
+
+                <a asp-area="" asp-controller="Account" asp-action="SignOut">
+                    <li class="item-menu">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        <span class="menu">Logout</span>
+                    </li>
+                </a>
+
+
+            </ul>
+        </div> <!-- end left -->
+       
+    </div>
+   
+
+
+
+
+
+
+    <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
+
     </div>
+
+
 
     <footer class="border-top footer text-muted">
         <div class="container">

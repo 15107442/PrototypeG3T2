@@ -34,13 +34,12 @@ namespace PrototypeG3T2.Controllers
         [HttpGet]
         public IActionResult SignedOut()
         {
-            if (User.Identity.IsAuthenticated)
-            {
+            
                 // Redirect to home page if the user is authenticated.
                 return RedirectToAction(nameof(HomeController.Index), "Home");
-            }
+            
 
-            return View();
+            
         }
 
         [HttpGet]
